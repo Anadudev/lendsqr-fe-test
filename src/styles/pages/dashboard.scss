@@ -1,4 +1,4 @@
-@import '../variables';
+@use "../variables" as *;
 
 .dashboard-page {
   .page-title {
@@ -33,10 +33,22 @@
         justify-content: center;
         margin-bottom: 14px;
 
-        &.users { background-color: rgba(223, 24, 255, 0.1); color: #DF18FF; }
-        &.active { background-color: rgba(87, 24, 255, 0.1); color: #5718FF; }
-        &.loan { background-color: rgba(245, 95, 68, 0.1); color: #F55F44; }
-        &.savings { background-color: rgba(255, 51, 102, 0.1); color: #FF3366; }
+        &.users {
+          background-color: rgba(223, 24, 255, 0.1);
+          color: #df18ff;
+        }
+        &.active {
+          background-color: rgba(87, 24, 255, 0.1);
+          color: #5718ff;
+        }
+        &.loan {
+          background-color: rgba(245, 95, 68, 0.1);
+          color: #f55f44;
+        }
+        &.savings {
+          background-color: rgba(255, 51, 102, 0.1);
+          color: #ff3366;
+        }
       }
 
       .label {

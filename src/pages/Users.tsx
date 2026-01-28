@@ -1,8 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { MoreVertical, Filter, Users as UsersIcon } from "lucide-react";
+import {
+  MoreVertical,
+  Filter,
+  Users as UsersIcon,
+  Eye,
+  UserX,
+  UserCheck,
+} from "lucide-react";
 import { userService } from "../services/userService";
 import type { User } from "../types/user";
 import "../styles/pages/users.scss";
+import Icon from "../components/Icon";
+import TableFilter from "../components/TableFilter";
 
 const Users: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -10,6 +19,24 @@ const Users: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (
+        !target.closest(".dropdown-trigger") &&
+        !target.closest(".filter-trigger") &&
+        !target.closest(".table-filter")
+      ) {
+        setActiveDropdown(null);
+        setIsFilterOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -36,28 +63,28 @@ const Users: React.FC = () => {
       <div className="stats-cards">
         <div className="card">
           <div className="icon-wrapper users">
-            <UsersIcon size={20} />
+            <Icon src="/icons/users-data-card.svg" size={40} />
           </div>
           <p className="label">USERS</p>
           <p className="value">2,453</p>
         </div>
         <div className="card">
           <div className="icon-wrapper active">
-            <UsersIcon size={20} />
+            <Icon src="/icons/people-data-card.svg" size={40} />
           </div>
           <p className="label">ACTIVE USERS</p>
           <p className="value">2,453</p>
         </div>
         <div className="card">
           <div className="icon-wrapper loan">
-            <UsersIcon size={20} />
+            <Icon src="/icons/loan-data-card.svg" size={40} />
           </div>
           <p className="label">USERS WITH LOANS</p>
           <p className="value">12,453</p>
         </div>
         <div className="card">
           <div className="icon-wrapper savings">
-            <UsersIcon size={20} />
+            <Icon src="/icons/savings-data-card.svg" size={40} />
           </div>
           <p className="label">USERS WITH SAVINGS</p>
           <p className="value">102,453</p>
@@ -68,23 +95,83 @@ const Users: React.FC = () => {
         <table className="users-table">
           <thead>
             <tr>
-              <th>
-                ORGANIZATION <Filter size={14} />
+              <th
+                className="filter-trigger"
+                onClick={() => setIsFilterOpen(!isFilterOpen)}
+              >
+                <span className="th-text">ORGANIZATION</span>
+                <Icon
+                  src="/icons/filter-results-button.svg"
+                  alt="filter"
+                  size={16}
+                  className="icon-component"
+                  style={{ marginBottom: "-2px" }}
+                />
+                {isFilterOpen && (
+                  <TableFilter onClose={() => setIsFilterOpen(false)} />
+                )}
               </th>
-              <th>
-                USERNAME <Filter size={14} />
+              <th
+                className="filter-trigger"
+                onClick={() => setIsFilterOpen(!isFilterOpen)}
+              >
+                <span className="th-text">USERNAME</span>
+                <Icon
+                  src="/icons/filter-results-button.svg"
+                  alt="filter"
+                  size={16}
+                  className="icon-component"
+                  style={{ marginBottom: "-2px" }}
+                />
               </th>
-              <th>
-                EMAIL <Filter size={14} />
+              <th
+                className="filter-trigger"
+                onClick={() => setIsFilterOpen(!isFilterOpen)}
+              >
+                <span className="th-text">EMAIL</span>
+                <Icon
+                  src="/icons/filter-results-button.svg"
+                  alt="filter"
+                  size={16}
+                  className="icon-component"
+                  style={{ marginBottom: "-2px" }}
+                />
               </th>
-              <th>
-                PHONE NUMBER <Filter size={14} />
+              <th
+                className="filter-trigger"
+                onClick={() => setIsFilterOpen(!isFilterOpen)}
+              >
+                <span className="th-text">PHONE NUMBER</span>
+                <Icon
+                  src="/icons/filter-results-button.svg"
+                  alt="filter"
+                  size={16}
+                  style={{ marginBottom: "-2px" }}
+                />
               </th>
-              <th>
-                DATE JOINED <Filter size={14} />
+              <th
+                className="filter-trigger"
+                onClick={() => setIsFilterOpen(!isFilterOpen)}
+              >
+                <span className="th-text">DATE JOINED</span>
+                <Icon
+                  src="/icons/filter-results-button.svg"
+                  alt="filter"
+                  size={16}
+                  style={{ marginBottom: "-2px" }}
+                />
               </th>
-              <th>
-                STATUS <Filter size={14} />
+              <th
+                className="filter-trigger"
+                onClick={() => setIsFilterOpen(!isFilterOpen)}
+              >
+                <span className="th-text">STATUS</span>
+                <Icon
+                  src="/icons/filter-results-button.svg"
+                  alt="filter"
+                  size={16}
+                  style={{ marginBottom: "-2px" }}
+                />
               </th>
               <th></th>
             </tr>
@@ -122,8 +209,46 @@ const Users: React.FC = () => {
                       {user.status}
                     </span>
                   </td>
-                  <td onClick={(e) => e.stopPropagation()}>
+                  <td
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveDropdown(
+                        activeDropdown === user.id ? null : user.id
+                      );
+                    }}
+                    className="dropdown-trigger"
+                    style={{ position: "relative" }}
+                  >
                     <MoreVertical size={16} cursor="pointer" />
+                    {activeDropdown === user.id && (
+                      <div className="actions-dropdown">
+                        <div
+                          className="dropdown-item"
+                          onClick={() =>
+                            (window.location.href = `/users/${user.id}`)
+                          }
+                        >
+                          <Icon src="/icons/menu-eye.svg" alt="eye" size={14} />
+                          <span>View Details</span>
+                        </div>
+                        <div className="dropdown-item">
+                          <Icon
+                            src="/icons/menu-user-x.svg"
+                            alt="user-x"
+                            size={14}
+                          />
+                          <span>Blacklist User</span>
+                        </div>
+                        <div className="dropdown-item">
+                          <Icon
+                            src="/icons/menu-user-check.svg"
+                            alt="user-check"
+                            size={14}
+                          />
+                          <span>Activate User</span>
+                        </div>
+                      </div>
+                    )}
                   </td>
                 </tr>
               ))

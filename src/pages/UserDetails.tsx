@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, User as UserIcon, Star } from "lucide-react";
+import { User as Star } from "lucide-react";
 import { userService } from "../services/userService";
 import type { User } from "../types/user";
 import "../styles/pages/userDetails.scss";
+import Icon from "../components/Icon";
 
 const UserDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -39,7 +40,7 @@ const UserDetails: React.FC = () => {
   return (
     <div className="user-details-page">
       <Link to="/users" className="back-link">
-        <ArrowLeft size={16} />
+        <Icon src="/icons/back-arrow-left.svg" size={16} />
         <span>Back to Users</span>
       </Link>
 
@@ -55,7 +56,7 @@ const UserDetails: React.FC = () => {
         <div className="summary-header">
           <div className="profile-info">
             <div className="avatar">
-              <UserIcon size={40} color="#213F7D" />
+              <Icon src="/icons/profile-avatar-placeholder.svg" size={40} />
             </div>
             <div className="info">
               <h2>{user.fullName}</h2>

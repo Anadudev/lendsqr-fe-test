@@ -1,0 +1,98 @@
+@use "../variables" as *;
+
+.table-filter {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: $white;
+  border: 1px solid rgba(84, 95, 125, 0.14);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  padding: 30px 20px;
+  width: 270px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    label {
+      font-size: 14px;
+      font-weight: 500;
+      color: $text-color;
+    }
+
+    input,
+    select {
+      width: 100%;
+      height: 40px;
+      padding: 0 12px;
+      border: 1px solid #545f7d26;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #545f7dcc;
+      background-color: transparent;
+      outline: none;
+
+      &::placeholder {
+        color: #545f7dcc;
+        opacity: 0.7;
+      }
+    }
+
+    .date-input-wrapper {
+      position: relative;
+
+      .calendar-icon {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 16px;
+        pointer-events: none;
+        opacity: 0.6;
+      }
+    }
+  }
+
+  .filter-actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 10px;
+
+    button {
+      flex: 1;
+      height: 48px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &.btn-reset {
+        background: transparent;
+        border: 1px solid $text-color;
+        color: $text-color;
+
+        &:hover {
+          background-color: rgba(84, 95, 125, 0.05);
+        }
+      }
+
+      &.btn-filter {
+        background: $primary-color;
+        border: 1px solid $primary-color;
+        color: $white;
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+    }
+  }
+}

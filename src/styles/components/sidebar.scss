@@ -1,4 +1,4 @@
-@import '../variables';
+@use "../variables" as *;
 
 .sidebar {
   width: 283px;
@@ -16,7 +16,7 @@
     width: 6px;
   }
   &::-webkit-scrollbar-thumb {
-    background: rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
   }
 
@@ -29,9 +29,9 @@
     font-size: 16px;
     cursor: pointer;
 
-    span {
-      flex: 1;
-    }
+    // span {
+    //   flex: 1;
+    // }
   }
 
   .sidebar-group {
@@ -57,11 +57,13 @@
     padding: 10px 30px;
     color: $secondary-color;
     font-size: 16px;
+    font-weight: 400;
     opacity: 0.6;
     cursor: pointer;
     transition: all 0.2s;
 
-    &.active, &:hover {
+    &.active,
+    &:hover {
       opacity: 1;
       background-color: rgba(57, 205, 204, 0.06);
       border-left: 3px solid $primary-color;
@@ -69,9 +71,9 @@
     }
 
     &.dashboard-link {
-        &.active {
-            opacity: 1;
-        }
+      &.active {
+        opacity: 1;
+      }
     }
   }
 

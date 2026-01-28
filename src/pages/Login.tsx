@@ -16,10 +16,10 @@ const Login: React.FC = () => {
     <div className="login-container">
       <div className="login-left">
         <div className="logo">
-          <img src="/logo.svg" alt="Lendsqr Logo" />
+          <img src="/Group.svg" className="login-logo" alt="Lendsqr Logo" />
         </div>
         <div className="illustration">
-          <img src="/login-illustration.svg" alt="Login Illustration" />
+          <img src="/pablo-sign-in.svg" alt="Login Illustration" />
         </div>
       </div>
       <div className="login-right">

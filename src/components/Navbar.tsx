@@ -1,18 +1,18 @@
 import React from "react";
-import { Search, Bell, ChevronDown } from "lucide-react";
 import "../styles/components/navbar.scss";
+import Icon from "./Icon";
 
 const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
       <div className="navbar-left">
         <div className="logo">
-          <img src="/logo.svg" alt="Lendsqr" />
+          <img src="/Group.svg" alt="Lendsqr" />
         </div>
         <div className="search-bar">
           <input type="text" placeholder="Search for anything" />
           <button className="search-btn">
-            <Search size={14} color="#white" />
+            <Icon src="/icons/search.svg" size={14} />
           </button>
         </div>
       </div>
@@ -21,14 +21,19 @@ const Navbar: React.FC = () => {
           Docs
         </a>
         <div className="notification">
-          <Bell size={20} color="#213F7D" />
+          <Icon src="/icons/bell.svg" size={20} />
         </div>
         <div className="user-profile">
           <div className="avatar">
-            <img src="/avatar.png" alt="User Avatar" />
+            <Icon src="/avatar.png" size={48} style={{ borderRadius: "50%" }} />
           </div>
           <span className="username">Adedeji</span>
-          <ChevronDown size={14} color="#213F7D" />
+          <img
+            src="/icons/chevron-down.svg"
+            alt="chevron-down"
+            width={14}
+            height={14}
+          />
         </div>
       </div>
     </nav>
