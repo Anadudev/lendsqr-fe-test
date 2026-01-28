@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
   MoreVertical,
-  Filter,
-  Users as UsersIcon,
-  Eye,
-  UserX,
-  UserCheck,
 } from "lucide-react";
 import { userService } from "../services/userService";
 import type { User } from "../types/user";

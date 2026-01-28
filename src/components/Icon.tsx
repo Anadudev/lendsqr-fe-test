@@ -2,7 +2,6 @@ import React from "react";
 
 const Icon = ({
   src,
-  alt = "icon",
   size,
   style,
   className,
