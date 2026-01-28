@@ -1,0 +1,39 @@
+// Colors
+$primary-color: #39cdcc;
+$secondary-color: #213f7d;
+$text-color: #545f7d;
+$white: #ffffff;
+$bg-color: #fbfbfb;
+$border-color: rgba(33, 63, 125, 0.1);
+
+// Status Colors
+$status-active-text: #39cd62;
+$status-active-bg: rgba(57, 205, 98, 0.06);
+$status-inactive-text: #545f7d;
+$status-inactive-bg: rgba(84, 95, 125, 0.06);
+$status-pending-text: #e9b200;
+$status-pending-bg: rgba(233, 178, 0, 0.06);
+$status-blacklisted-text: #e4033b;
+$status-blacklisted-bg: rgba(228, 3, 59, 0.06);
+
+// Typography
+$font-family: "Inter", sans-serif;
+$font-family-secondary: "Work Sans", sans-serif;
+
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+
+// Mixins
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}

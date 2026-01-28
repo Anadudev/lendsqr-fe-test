@@ -1,0 +1,64 @@
+@import '../variables';
+
+.dashboard-page {
+  .page-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: $secondary-color;
+    margin-bottom: 40px;
+  }
+
+  .stats-cards {
+    display: flex;
+    gap: 26px;
+    margin-bottom: 40px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+
+    .card {
+      min-width: 240px;
+      flex: 1;
+      background-color: $white;
+      padding: 20px 30px;
+      border: 1px solid rgba(33, 63, 125, 0.06);
+      border-radius: 4px;
+      box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+
+      .icon-wrapper {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+
+        &.users { background-color: rgba(223, 24, 255, 0.1); color: #DF18FF; }
+        &.active { background-color: rgba(87, 24, 255, 0.1); color: #5718FF; }
+        &.loan { background-color: rgba(245, 95, 68, 0.1); color: #F55F44; }
+        &.savings { background-color: rgba(255, 51, 102, 0.1); color: #FF3366; }
+      }
+
+      .label {
+        font-size: 12px;
+        font-weight: 500;
+        color: $text-color;
+        margin-bottom: 12px;
+      }
+
+      .value {
+        font-size: 24px;
+        font-weight: 600;
+        color: $secondary-color;
+      }
+    }
+  }
+
+  .placeholder-content {
+    background-color: $white;
+    padding: 30px;
+    border-radius: 4px;
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    color: $text-color;
+  }
+}

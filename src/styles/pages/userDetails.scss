@@ -1,0 +1,171 @@
+@import '../variables';
+
+.user-details-page {
+  .back-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: $text-color;
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    h1 {
+      font-size: 24px;
+      font-weight: 500;
+      color: $secondary-color;
+    }
+
+    .btns {
+      display: flex;
+      gap: 20px;
+
+      button {
+        height: 48px;
+        padding: 0 30px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+
+        &.blacklist-btn {
+          border: 1px solid $status-blacklisted-text;
+          color: $status-blacklisted-text;
+        }
+
+        &.activate-btn {
+          border: 1px solid $primary-color;
+          color: $primary-color;
+        }
+      }
+    }
+
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+  }
+
+  .user-summary-card {
+    background-color: $white;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    border-radius: 4px;
+    padding: 30px 30px 0;
+    margin-bottom: 30px;
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+
+    .summary-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 50px;
+
+      .profile-info {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .avatar {
+          width: 100px;
+          height: 100px;
+          background-color: rgba(33, 63, 125, 0.1);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .info {
+          h2 { font-size: 22px; color: $secondary-color; margin-bottom: 5px; }
+          p { font-size: 14px; color: $text-color; }
+        }
+      }
+
+      .divider {
+        width: 1px;
+        height: 80px;
+        background-color: rgba(84, 95, 125, 0.2);
+        margin: 0 30px;
+      }
+
+      .user-tier {
+        p { font-size: 14px; color: $text-color; margin-bottom: 10px; }
+        .stars { display: flex; gap: 5px; }
+      }
+
+      .bank-info {
+        h2 { font-size: 22px; color: $secondary-color; margin-bottom: 5px; }
+        p { font-size: 14px; color: $secondary-color; }
+      }
+
+      @include tablet {
+        flex-wrap: wrap;
+        gap: 30px;
+        .divider { display: none; }
+      }
+    }
+
+    .summary-tabs {
+      display: flex;
+      justify-content: space-between;
+      
+      button {
+        padding: 0 10px 10px;
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.8);
+        border-bottom: 2px solid transparent;
+        flex: 1;
+
+        &.active {
+          color: $primary-color;
+          border-bottom-color: $primary-color;
+        }
+      }
+
+      @include tablet {
+        overflow-x: auto;
+        button { min-width: 120px; }
+      }
+    }
+  }
+
+  .details-card {
+    background-color: $white;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    border-radius: 4px;
+    padding: 30px;
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+
+    section {
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+
+      &:last-child { border-bottom: none; }
+
+      h3 {
+        font-size: 16px;
+        font-weight: 500;
+        color: $secondary-color;
+        margin-bottom: 30px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 30px;
+
+        .item {
+          .label { font-size: 12px; color: $text-color; margin-bottom: 8px; }
+          .val { font-size: 16px; font-weight: 500; color: $text-color; }
+        }
+      }
+    }
+  }
+}

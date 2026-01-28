@@ -1,0 +1,23 @@
+@import '../variables';
+
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .layout-body {
+    display: flex;
+    flex: 1;
+
+    .main-content {
+      flex: 1;
+      padding: 60px;
+      background-color: $bg-color;
+      overflow-x: hidden;
+
+      @include tablet {
+        padding: 30px 15px;
+      }
+    }
+  }
+}

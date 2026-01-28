@@ -1,0 +1,152 @@
+@import '../variables';
+
+.users-page {
+  .page-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: $secondary-color;
+    margin-bottom: 40px;
+  }
+
+  .stats-cards {
+    display: flex;
+    gap: 26px;
+    margin-bottom: 40px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+
+    .card {
+      min-width: 240px;
+      flex: 1;
+      background-color: $white;
+      padding: 20px 30px;
+      border: 1px solid rgba(33, 63, 125, 0.06);
+      border-radius: 4px;
+      box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+
+      .icon-wrapper {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+
+        &.users { background-color: rgba(223, 24, 255, 0.1); color: #DF18FF; }
+        &.active { background-color: rgba(87, 24, 255, 0.1); color: #5718FF; }
+        &.loan { background-color: rgba(245, 95, 68, 0.1); color: #F55F44; }
+        &.savings { background-color: rgba(255, 51, 102, 0.1); color: #FF3366; }
+      }
+
+      .label {
+        font-size: 12px;
+        font-weight: 500;
+        color: $text-color;
+        margin-bottom: 12px;
+      }
+
+      .value {
+        font-size: 24px;
+        font-weight: 600;
+        color: $secondary-color;
+      }
+    }
+  }
+
+  .table-wrapper {
+    background-color: $white;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    border-radius: 4px;
+    padding: 30px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+
+    .users-table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th {
+        text-align: left;
+        font-size: 12px;
+        font-weight: 600;
+        color: $text-color;
+        padding: 0 10px 20px;
+        white-space: nowrap;
+
+        svg {
+          vertical-align: middle;
+          margin-left: 5px;
+          cursor: pointer;
+        }
+      }
+
+      td {
+        padding: 20px 10px;
+        border-bottom: 1px solid rgba(33, 63, 125, 0.05);
+        font-size: 14px;
+        color: $text-color;
+      }
+
+      .status-badge {
+        padding: 6px 12px;
+        border-radius: 100px;
+        font-size: 14px;
+        font-weight: 400;
+
+        &.status-active { color: $status-active-text; background-color: $status-active-bg; }
+        &.status-inactive { color: $status-inactive-text; background-color: $status-inactive-bg; }
+        &.status-pending { color: $status-pending-text; background-color: $status-pending-bg; }
+        &.status-blacklisted { color: $status-blacklisted-text; background-color: $status-blacklisted-bg; }
+      }
+    }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+
+    .showing {
+      font-size: 14px;
+      color: $text-color;
+
+      select {
+        margin: 0 10px;
+        padding: 5px;
+        background-color: rgba(33, 63, 125, 0.1);
+        border: none;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+    }
+
+    .pages {
+      display: flex;
+      gap: 5px;
+
+      button {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        color: $text-color;
+        border-radius: 4px;
+        opacity: 0.6;
+
+        &.active {
+          opacity: 1;
+          font-weight: 700;
+        }
+
+        &:disabled {
+          opacity: 0.2;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
