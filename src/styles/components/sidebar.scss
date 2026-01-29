@@ -78,6 +78,36 @@
   }
 
   @include tablet {
-    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    padding-top: 100px;
+    width: 283px;
+
+    &.is-open {
+      transform: translateX(0);
+    }
+  }
+}
+
+.sidebar-backdrop {
+  display: none;
+
+  @include tablet {
+    &.is-open {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(33, 63, 125, 0.2);
+      backdrop-filter: blur(2px);
+      z-index: 999;
+    }
   }
 }

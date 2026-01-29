@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import {
-  MoreVertical,
-} from "lucide-react";
+import { MoreVertical } from "lucide-react";
 import { userService } from "../services/userService";
 import type { User } from "../types/user";
 import "../styles/pages/users.scss";
 import Icon from "../components/Icon";
 import TableFilter from "../components/TableFilter";
+import StatsRow from "../components/StatsRow";
 
 const Users: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -55,36 +54,7 @@ const Users: React.FC = () => {
     <div className="users-page">
       <h1 className="page-title">Users</h1>
 
-      <div className="stats-cards">
-        <div className="card">
-          <div className="icon-wrapper users">
-            <Icon src="/icons/users-data-card.svg" size={40} />
-          </div>
-          <p className="label">USERS</p>
-          <p className="value">2,453</p>
-        </div>
-        <div className="card">
-          <div className="icon-wrapper active">
-            <Icon src="/icons/people-data-card.svg" size={40} />
-          </div>
-          <p className="label">ACTIVE USERS</p>
-          <p className="value">2,453</p>
-        </div>
-        <div className="card">
-          <div className="icon-wrapper loan">
-            <Icon src="/icons/loan-data-card.svg" size={40} />
-          </div>
-          <p className="label">USERS WITH LOANS</p>
-          <p className="value">12,453</p>
-        </div>
-        <div className="card">
-          <div className="icon-wrapper savings">
-            <Icon src="/icons/savings-data-card.svg" size={40} />
-          </div>
-          <p className="label">USERS WITH SAVINGS</p>
-          <p className="value">102,453</p>
-        </div>
-      </div>
+      <StatsRow />
 
       <div className="table-wrapper">
         <table className="users-table">

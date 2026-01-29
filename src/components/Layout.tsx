@@ -8,11 +8,21 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const [sidebarOpen, setSidebarOpen] = React.useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
+  const closeSidebar = () => {
+    setSidebarOpen(false);
+  };
+
   return (
     <div className="layout-container">
-      <Navbar />
+      <Navbar onToggleSidebar={toggleSidebar} />
       <div className="layout-body">
-        <Sidebar />
+        <Sidebar isOpen={sidebarOpen} onClose={closeSidebar} />
         <main className="main-content">{children}</main>
       </div>
     </div>
