@@ -1,5 +1,4 @@
 import React from "react";
-import { Users as UsersIcon } from "lucide-react";
 import "../styles/pages/dashboard.scss";
 import StatsRow from "../components/StatsRow";
 
