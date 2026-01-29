@@ -22,7 +22,7 @@ This repository contains the implementation of the Lendsqr Admin Console fronten
 
 ## Project Structure
 
-- `public`: Static assets including brand logos, illustrations, icons, and favicons.
+- `public`: Static assets including brand logos, illustrations, and favicons.
 - `public/icons`: Collection of custom SVG icons used for navigation and UI elements.
 - `src/components`: Shared UI components (Layout, Navbar, Sidebar).
 - `src/pages`: Individual application screens.
