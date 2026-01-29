@@ -67,20 +67,29 @@ const UserDetails: React.FC = () => {
           <div className="user-tier">
             <p>User's Tier</p>
             <div className="stars">
-              <Star
+              <Icon
+                src={
+                  user.userTier >= 1
+                    ? "/icons/rating-star-fill.svg"
+                    : "/icons/rating-star.svg"
+                }
                 size={16}
-                fill={user.userTier >= 1 ? "#E9B200" : "none"}
-                color="#E9B200"
               />
-              <Star
+              <Icon
+                src={
+                  user.userTier >= 2
+                    ? "/icons/rating-star-fill.svg"
+                    : "/icons/rating-star.svg"
+                }
                 size={16}
-                fill={user.userTier >= 2 ? "#E9B200" : "none"}
-                color="#E9B200"
               />
-              <Star
+              <Icon
+                src={
+                  user.userTier >= 3
+                    ? "/icons/rating-star-fill.svg"
+                    : "/icons/rating-star.svg"
+                }
                 size={16}
-                fill={user.userTier >= 3 ? "#E9B200" : "none"}
-                color="#E9B200"
               />
             </div>
           </div>
@@ -132,7 +141,11 @@ const UserDetails: React.FC = () => {
             </div>
             <div className="item">
               <p className="label">CHILDREN</p>
-              <p className="val">{user.personalInfo.children}</p>
+              <p className="val">
+                {user.personalInfo.children === "0"
+                  ? "None"
+                  : user.personalInfo.children}
+              </p>
             </div>
             <div className="item">
               <p className="label">RESIDENCE TYPE</p>
