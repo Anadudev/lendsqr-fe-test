@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { User as Star } from "lucide-react";
 import { userService } from "../services/userService";
 import type { User } from "../types/user";
 import "../styles/pages/userDetails.scss";
