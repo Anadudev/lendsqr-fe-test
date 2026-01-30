@@ -37,7 +37,7 @@ const Users: React.FC = () => {
       setLoading(true);
       const { data, total } = await userService.getUsers(
         currentPage,
-        itemsPerPage
+        itemsPerPage,
       );
       setUsers(data);
       setTotal(total);
@@ -148,11 +148,7 @@ const Users: React.FC = () => {
               </tr>
             ) : (
               users.map((user) => (
-                <tr
-                  key={user.id}
-                  onClick={() => (window.location.href = `/users/${user.id}`)}
-                  style={{ cursor: "pointer" }}
-                >
+                <tr key={user.id}>
                   <td>{user.organization}</td>
                   <td>{user.username}</td>
                   <td>{user.email}</td>
@@ -178,7 +174,7 @@ const Users: React.FC = () => {
                     onClick={(e) => {
                       e.stopPropagation();
                       setActiveDropdown(
-                        activeDropdown === user.id ? null : user.id
+                        activeDropdown === user.id ? null : user.id,
                       );
                     }}
                     className="dropdown-trigger"
